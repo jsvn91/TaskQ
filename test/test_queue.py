@@ -10,20 +10,7 @@ def test_tqueue():
                     max_parallel_worker=6
                     )
 
-    tq.enqueue_item("HI")
-    tq.enqueue_item("HI")
-    tq.enqueue_item("HI")
-    tq.enqueue_item("HI")
-    tq.enqueue_item("HI")
-    tq.enqueue_item("HI")
-    tq.enqueue_item("HI")
-    tq.enqueue_item("HI")
-    tq.enqueue_item("HI")
-    tq.enqueue_item("HI")
-    tq.enqueue_item("HI")
-    tq.enqueue_item("HI")
-    tq.enqueue_item("HI")
-    tq.enqueue_item("HI")
+    tq.enqueue_item("HI","HI","HI","HI")
 
     tq.process_queue()
 
