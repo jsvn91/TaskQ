@@ -21,10 +21,7 @@ class TQueue():
         log.info(f"max_parallel_worker set to {self.max_parallel_worker}")
         self.dequeue_no = max_parallel_worker
         self.process(target=target)
-        self.workers = [
-
-        ]
-        # self.initialise_worker()
+        self.workers = []
         self.tqueue = []
         
     def enqueue_item(self, *items):
