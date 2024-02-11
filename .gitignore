@@ -3,6 +3,7 @@
 .pytest_cache
 .conda
 .tqcache
+.coverage
 
 # Test folder
 test/__pycache__
