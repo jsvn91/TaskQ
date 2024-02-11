@@ -5,14 +5,27 @@ from taskq.sample import sample_target_func
 log=logging.getLogger()
 
 def test_tqueue():
-    tq = TQueue(max_workers=10)
+    tq = TQueue(
+                    target=sample_target_func,
+                    max_parallel_worker=6
+                    )
 
-    tq.add_item("HI")
-    tq.add_item("HI")
-    tq.add_item("HI")
-    tq.add_item("HI")
-    tq.add_item("HI")
-    tq.process(target=sample_target_func)
+    tq.enqueue_item("HI")
+    tq.enqueue_item("HI")
+    tq.enqueue_item("HI")
+    tq.enqueue_item("HI")
+    tq.enqueue_item("HI")
+    tq.enqueue_item("HI")
+    tq.enqueue_item("HI")
+    tq.enqueue_item("HI")
+    tq.enqueue_item("HI")
+    tq.enqueue_item("HI")
+    tq.enqueue_item("HI")
+    tq.enqueue_item("HI")
+    tq.enqueue_item("HI")
+    tq.enqueue_item("HI")
 
+    tq.process_queue()
 
-
+    for worker in tq.workers:
+        log.info(f"result={worker.get_result()}")
