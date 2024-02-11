@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "taskq"
+version = "0.1.0"
+description = "Taskq : it's an task processing library which can run process parallely async way"
+authors = ["Swapnil Jagtap <jsvn91@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.0.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
