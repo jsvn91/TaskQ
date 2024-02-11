@@ -1,4 +1,8 @@
+# package folder
 .vscode/launch.json
 
 # Test folder
 test/__pycache__
+
+# taskq folder
+taskq/__pycache__
