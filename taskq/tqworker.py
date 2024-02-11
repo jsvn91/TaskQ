@@ -20,17 +20,6 @@ class Tqworker:
     def get_worker_id(self):
         return str(uuid.uuid4())
 
-    def get_sub_worker(self, sub_worker_id, target_module, target_name):
-
-        sub_worker_dict = dict(
-            sub_worker_id=sub_worker_id,
-            sub_worker_proc=self.get_process(
-                sub_worker_id=sub_worker_id,
-                target_module=target_module,
-                target_name=target_name,
-            ),
-        )
-
     def get_process(self, sub_worker_id, target_module, target_name, target_args):
         artifact_path = Path(self.cache_path, sub_worker_id).as_posix()
         cmd = [
@@ -44,19 +33,6 @@ class Tqworker:
 
         log.info(f"{proc.pid} started")
         return artifact_path, proc
-
-    def get_module(self, target_module, target_name):
-        try:
-            func_args = f"{target_module}.{target_name}".split(".")
-            function_module = __import__(func_args[0])
-            cmd = f"function_module"
-            for attr in func_args[1:]:
-                cmd = cmd + f".{attr}"
-                obj = eval(cmd)
-        except Exception as e:
-            self.log.error(e)
-            sys.exit()
-        return obj
 
     def call_process(self):
         for tqitem in self.tqitems:
