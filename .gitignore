@@ -2,6 +2,7 @@
 .vscode/launch.json
 .pytest_cache
 .conda
+.tqcache
 
 # Test folder
 test/__pycache__
