@@ -1,16 +1,14 @@
-import logging 
+import logging
 from taskq.tqueue import TQueue
 from taskq.sample import sample_target_func
 
-log=logging.getLogger()
+log = logging.getLogger()
+
 
 def test_tqueue():
-    tq = TQueue(
-                    target=sample_target_func,
-                    max_parallel_worker=6
-                    )
+    tq = TQueue(target=sample_target_func, max_parallel_worker=6)
 
-    tq.enqueue_item("HI","HI","HI","HI")
+    tq.enqueue_item("HI", "HI", "HI", "HI")
 
     tq.process_queue()
 
