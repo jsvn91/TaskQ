@@ -20,7 +20,7 @@ class TQueue():
         self.max_parallel_worker = max_parallel_worker
         log.info(f"max_parallel_worker set to {self.max_parallel_worker}")
         self.dequeue_no = max_parallel_worker
-        self.process(target=target)
+        self.prep_queue(target=target)
         self.workers = []
         self.tqueue = []
         
@@ -66,13 +66,10 @@ class TQueue():
         self.target_module = target.__module__
         self.target_name = target.__name__
         
-    def process(self, target=None):
+    def prep_queue(self, target=None):
         if target is None:
             log.error("Please set the target fucntion..")
             sys.exit()
         self.set_module(target=target)
         self.main_pid = os.getpid()
         log.info(f"self.main_pid is { self.main_pid}")
-
-    #     for tq_item in self.__tqueue:
-    #         log.info(tq_item)
